@@ -14,9 +14,9 @@ jobs:
         run: docker-compose -f "docker-compose.yml" up -d --build
       - uses: cygnetdigital/wait_for_response@v2.0.0
         with:
-          url: "http://localhost:8080/"
-          responseCode: "200,500"
-          timeout: 100000
+          url: "http://localhost:8080"
+          responseCode: "200"
+          timeout: 150000
           interval: 500
       - uses: actions/setup-node@v3
         with:
