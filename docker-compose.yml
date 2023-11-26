@@ -1,0 +1,43 @@
+version: "3"
+services:
+  mysql:
+    container_name: some-mysql
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: prestashop
+    networks:
+      - prestashop_network
+  prestashop:
+    container_name: prestashop
+    image: prestashop/prestashop:latest
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    environment:
+      DB_SERVER: some-mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: admin
+      PS_INSTALL_AUTO: 1
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_ADMIN: adminTest
+      PS_FOLDER_INSTALL: installTest
+      ADMIN_MAIL: admin@testshop.com
+      ADMIN_PASSWD: test_shop
+    networks:
+      - prestashop_network
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: always
+    ports:
+      - 8025:8025
+      - 1025:1025
+    networks:
+      - prestashop_network
+networks:
+  prestashop_network:
