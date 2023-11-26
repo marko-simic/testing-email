@@ -16,7 +16,7 @@ jobs:
         with:
           url: "http://localhost:8080/"
           responseCode: "200,500"
-          timeout: 50000
+          timeout: 100000
           interval: 500
       - uses: actions/setup-node@v3
         with:
