@@ -23,8 +23,17 @@ setup("Presta shop do login", async ({ page }) => {
   await page
     .getByLabel("form_smtp_config_server input")
     .fill("host.docker.internal")
+  await expect(page.getByLabel("form_smtp_config_server input")).toHaveValue(
+    "host.docker.internal"
+  )
   await page.getByLabel("form_smtp_config_port input").fill("1025")
+  await expect(page.getByLabel("form_smtp_config_port input")).toHaveValue(
+    "1025"
+  )
   await page.getByRole("button", { name: "Save" }).click()
+
+  await page.waitForTimeout(1000) // Wait for propagation
+
   expect(
     page.getByText("The settings have been successfully updated.")
   ).toBeVisible()
