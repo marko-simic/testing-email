@@ -35,5 +35,5 @@ setup("Presta shop do login", async ({ page }) => {
     page.locator('form[name="test_email_sending"]').getByRole("alert")
   ).toHaveText("A test email has been sent to the email address you provided.")
 
-  await page.pause()
+  //await page.pause()
 })

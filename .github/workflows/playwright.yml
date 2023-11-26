@@ -14,7 +14,7 @@ jobs:
         run: docker-compose -f "docker-compose.yml" up -d --build
       - uses: GuillaumeFalourd/wait-sleep-action@v1
         with:
-          time: "3m" # for 1 minute
+          time: "5m" # for 1 minute
       - uses: actions/setup-node@v3
         with:
           node-version: 16

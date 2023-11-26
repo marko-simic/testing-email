@@ -5,7 +5,6 @@ test.describe("Email", () => {
   test("should open MailPit web UI", async ({ page }) => {
     await page.goto("http://localhost:8025")
 
-    await page.pause()
+    //await page.pause()
   })
 })
-// host.docker.internal
