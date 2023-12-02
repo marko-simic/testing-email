@@ -1,7 +1,7 @@
 import { expect, test as setup } from "@playwright/test"
 
 setup("Presta shop do login", async ({ page }) => {
-  await page.goto("http://localhost:8080/adminTest", { timeout: 180 * 1000 })
+  await page.goto("http://localhost:8080/adminTest")
 
   // Login into Prestashop back office
   await page
