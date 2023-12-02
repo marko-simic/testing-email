@@ -23,9 +23,11 @@ jobs:
         run: |
           while ! curl -s curl -I http://localhost:8080 > /dev/null; do
             echo "Waiting for server..."
-            curl -I http://localhost:8080
             sleep 5
           done
+        shell: bash
+      - name: Check status code
+        run: curl -I http://localhost:8080
         shell: bash
       - name: Run Playwright tests
         run: npx playwright test
