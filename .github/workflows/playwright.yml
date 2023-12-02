@@ -19,12 +19,14 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
-      - uses: cygnetdigital/wait_for_response@v2.0.0
-        with:
-          url: "http://localhost:8080/"
-          responseCode: "200"
-          timeout: 360000
-          interval: 500
+      - name: Wait for server to be ready
+        run: |
+          while ! curl -s curl -I http://localhost:8080 > /dev/null; do
+            echo "Waiting for server..."
+            curl -I http://localhost:8080
+            sleep 5
+          done
+        shell: bash
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v3
