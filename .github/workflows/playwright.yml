@@ -23,7 +23,7 @@ jobs:
         with:
           url: "http://localhost:8080/adminTest/"
           responseCode: "302,301"
-          timeout: 180000
+          timeout: 360000
           interval: 500
       - name: Run Playwright tests
         run: npx playwright test
