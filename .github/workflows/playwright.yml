@@ -21,7 +21,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - uses: cygnetdigital/wait_for_response@v2.0.0
         with:
-          url: "http://prestashop:8080/adminTest"
+          url: "http://127.0.0.1:8080/adminTest"
           responseCode: "200"
           timeout: 180000
           interval: 500
