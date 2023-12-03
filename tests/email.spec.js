@@ -52,5 +52,8 @@ test.describe("Email", () => {
         .frameLocator("#preview-html")
         .getByText(`Hi ${user.firstName} ${user.lastName},`)
     ).toBeVisible()
+
+    // Wait for email to be captured in video
+    await page.waitForTimeout(1500)
   })
 })
