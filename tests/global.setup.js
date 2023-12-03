@@ -1,6 +1,6 @@
 import { expect, test as setup } from "@playwright/test"
 
-setup("Presta shop do login", async ({ page }) => {
+setup("Should setup prestashop email gateway", async ({ page }) => {
   await page.goto("http://localhost:8080/adminTest")
 
   // Login into Prestashop back office
@@ -43,6 +43,4 @@ setup("Presta shop do login", async ({ page }) => {
   await expect(
     page.locator('form[name="test_email_sending"]').getByRole("alert")
   ).toHaveText("A test email has been sent to the email address you provided.")
-
-  //await page.pause()
 })
