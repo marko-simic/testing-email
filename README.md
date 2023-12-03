@@ -2,6 +2,8 @@
 
 Practical example of UI email testing with [Mailpit](https://github.com/axllent/mailpit) and [Playwright](https://playwright.dev)
 
+![Video of test execution][video.gif]
+
 ## What is Mailpit?
 
 [Mailpit](https://github.com/axllent/mailpit) is a small, fast, low memory, zero-dependency, multi-platform email testing tool.
