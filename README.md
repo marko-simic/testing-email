@@ -1,6 +1,6 @@
 # Email Testing
 
-![Automation Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![Automation Tests](https://github.com/github/docs/actions/workflows/playwright.yml/badge.svg)
 
 Practical example of UI email testing with [Mailpit](https://github.com/axllent/mailpit) and [Playwright](https://playwright.dev)
 
